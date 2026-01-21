@@ -30,14 +30,14 @@
 
         <div class="card" id="card-highlight">
             <div class="card-label">TOP HEADLINE</div>
-            <div class="news-headline" id="headline-display">Waiting for updates...</div>
-            <div class="detail" id="headline-source">SPORTS TICKER</div>
+            <div class="news-headline" id="headline-display">Initializing Data Streams...</div>
+            <div class="detail" id="headline-source">LIVE TICKER</div>
         </div>
     </div>
 
     <div id="ticker-container">
         <div id="ticker-tape">
-            <div class="ticker-item">Loading Data streams...</div>
+            <div class="ticker-item">System Loading...</div>
         </div>
     </div>
 
@@ -45,16 +45,20 @@
         <div class="modal-content">
             <h2>DASHBOARD SETTINGS</h2>
             
-            <label>Zip Code (Weather):</label>
+            <label>Zip Code (Location):</label>
             <input type="text" id="setting-zip" placeholder="e.g. 10001">
 
-            <label>Favorite Teams / Stocks (Keywords):</label>
-            <small>Separate by comma (e.g. Yankees, AAPL, Lakers)</small>
-            <input type="text" id="setting-teams" placeholder="NY Knicks, TSLA, BTC">
+            <label>Favorite Teams / Stocks:</label>
+            <small>Comma separated keywords (e.g. Yankees, TSLA)</small>
+            <input type="text" id="setting-teams" placeholder="Yankees, TSLA">
 
-            <label>API Key: OpenWeatherMap (Optional)</label>
-            <small>Leave blank to use Demo Mode</small>
+            <label>OpenWeatherMap Key (Weather):</label>
+            <small>Optional: Leave blank for Demo Mode</small>
             <input type="text" id="setting-weather-key">
+
+            <label>TomTom Traffic Key:</label>
+            <small>Pre-loaded in code, but you can override here</small>
+            <input type="text" id="setting-traffic-key">
 
             <div class="modal-actions">
                 <button id="btn-save">SAVE & RELOAD</button>
