@@ -72,6 +72,8 @@ body {
     line-height: 1.4; 
     color: var(--neon-red);
     text-transform: uppercase;
+    overflow: hidden;
+    max-height: 80%;
 }
 
 /* --- TICKER TAPE --- */
@@ -88,8 +90,8 @@ body {
 
 #ticker-tape {
     display: inline-block;
-    animation: scroll-left 40s linear infinite;
-    padding-left: 100vw; /* Start from off-screen */
+    animation: scroll-left 60s linear infinite; /* Speed of scroll */
+    padding-left: 100vw;
 }
 
 .ticker-item {
@@ -128,6 +130,7 @@ button {
     height: 50px;
     cursor: pointer;
     border-radius: 5px;
+    margin-left: 10px;
 }
 button:hover { background: var(--neon-blue); color: black; }
 
