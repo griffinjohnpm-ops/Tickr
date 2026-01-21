@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard OS</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="controls-overlay">
+        <button id="btn-fullscreen" title="Go Full Screen">⛶</button>
+        <button id="btn-settings" title="Settings">⚙</button>
+    </div>
+
+    <div id="dashboard">
+        <div class="card" id="card-clock">
+            <div class="card-label">CURRENT TIME</div>
+            <div class="big-value" id="clock-display">--:--</div>
+            <div class="sub-value" id="date-display">...</div>
+        </div>
+
+        <div class="card" id="card-weather">
+            <div class="card-label">LOCAL WEATHER</div>
+            <div class="big-value" id="weather-temp">--°</div>
+            <div class="sub-value" id="weather-desc">Loading...</div>
+            <div class="detail" id="weather-loc">Location</div>
+        </div>
+
+        <div class="card" id="card-highlight">
+            <div class="card-label">TOP HEADLINE</div>
+            <div class="news-headline" id="headline-display">Waiting for updates...</div>
+            <div class="detail" id="headline-source">SPORTS TICKER</div>
+        </div>
+    </div>
+
+    <div id="ticker-container">
+        <div id="ticker-tape">
+            <div class="ticker-item">Loading Data streams...</div>
+        </div>
+    </div>
+
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>DASHBOARD SETTINGS</h2>
+            
+            <label>Zip Code (Weather):</label>
+            <input type="text" id="setting-zip" placeholder="e.g. 10001">
+
+            <label>Favorite Teams / Stocks (Keywords):</label>
+            <small>Separate by comma (e.g. Yankees, AAPL, Lakers)</small>
+            <input type="text" id="setting-teams" placeholder="NY Knicks, TSLA, BTC">
+
+            <label>API Key: OpenWeatherMap (Optional)</label>
+            <small>Leave blank to use Demo Mode</small>
+            <input type="text" id="setting-weather-key">
+
+            <div class="modal-actions">
+                <button id="btn-save">SAVE & RELOAD</button>
+                <button id="btn-close" style="background:#555">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

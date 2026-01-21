@@ -1,0 +1,152 @@
+:root {
+    --bg-color: #050505;
+    --card-bg: #111;
+    --border-color: #333;
+    --neon-blue: #00f3ff;
+    --neon-amber: #ffaa00;
+    --neon-red: #ff3333;
+    --neon-green: #33ff00;
+    --font-digital: 'Orbitron', sans-serif;
+    --font-text: 'Roboto Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg-color);
+    color: white;
+    font-family: var(--font-digital);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* --- DASHBOARD GRID --- */
+#dashboard {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px;
+    align-items: center;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    position: relative;
+}
+
+.card-label {
+    position: absolute;
+    top: 15px;
+    font-size: 0.8rem;
+    color: #666;
+    letter-spacing: 2px;
+}
+
+.big-value {
+    font-size: 4rem;
+    font-weight: 900;
+    text-shadow: 0 0 10px currentColor;
+}
+
+.sub-value { font-size: 1.5rem; margin-top: 10px; color: #ccc; font-family: var(--font-text); }
+.detail { font-size: 0.9rem; color: #555; margin-top: 15px; }
+
+/* Specific Colors */
+#clock-display { color: var(--neon-blue); }
+#weather-temp { color: var(--neon-amber); }
+#headline-display { 
+    font-size: 1.5rem; 
+    padding: 20px; 
+    line-height: 1.4; 
+    color: var(--neon-red);
+    text-transform: uppercase;
+}
+
+/* --- TICKER TAPE --- */
+#ticker-container {
+    height: 60px;
+    background: #000;
+    border-top: 4px solid #222;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#ticker-tape {
+    display: inline-block;
+    animation: scroll-left 40s linear infinite;
+    padding-left: 100vw; /* Start from off-screen */
+}
+
+.ticker-item {
+    display: inline-block;
+    font-family: var(--font-text);
+    font-size: 1.5rem;
+    margin-right: 60px;
+    color: var(--neon-green);
+    text-transform: uppercase;
+}
+.ticker-highlight { color: var(--neon-amber); }
+.ticker-down { color: var(--neon-red); }
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* --- CONTROLS & MODAL --- */
+#controls-overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 100;
+}
+body:hover #controls-overlay { opacity: 1; }
+
+button {
+    background: #222;
+    color: white;
+    border: 1px solid #444;
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+button:hover { background: var(--neon-blue); color: black; }
+
+.modal {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 200;
+}
+.hidden { display: none; }
+
+.modal-content {
+    background: #151515; border: 2px solid var(--neon-blue);
+    padding: 40px; width: 400px; border-radius: 10px;
+    display: flex; flex-direction: column; gap: 15px;
+}
+.modal-content input {
+    background: #222; border: 1px solid #444; color: white;
+    padding: 10px; font-family: var(--font-text);
+}
+.modal-actions { display: flex; gap: 10px; margin-top: 20px; }
+.modal-actions button { width: 100%; font-size: 1rem; }
